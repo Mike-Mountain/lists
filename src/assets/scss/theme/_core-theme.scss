@@ -1,34 +1,30 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '~@angular/material' as mat;
+@use 'sass:map';
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat.core();
-@import './palettes/primary';
-@import './palettes/accent';
-@import './palettes/error';
+@import 'palettes/blue';
+@import 'palettes/orange';
+@import 'palettes/red';
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$ng-todo-offline-primary: mat.define-palette($primary);
-$ng-todo-offline-accent: mat.define-palette($accent);
-$ng-todo-offline-warn: mat.define-palette($error);
+$ng-todo-offline-primary: mat.define-palette($orange);
+$ng-todo-offline-accent: mat.define-palette($blue);
+$ng-todo-offline-warn: mat.define-palette($red);
+
+// Insert custom background color
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$light-theme: mat.define-light-theme((
-  color: (
-    primary: $ng-todo-offline-primary,
-    accent: $ng-todo-offline-accent,
-    warn: $ng-todo-offline-warn,
-  )
-));
 
-$dark-theme: mat.define-dark-theme((
+$lists-theme: mat.define-dark-theme((
   color: (
     primary: $ng-todo-offline-primary,
     accent: $ng-todo-offline-accent,
@@ -37,13 +33,9 @@ $dark-theme: mat.define-dark-theme((
 ));
 
 // Include theme styles for core and each component used in your app.
-// Fallback default theme is light.
-//@include mat.all-component-themes($light-theme);
-
-.light-theme {
-  @include mat.all-component-themes($light-theme);
-}
-
-.dark-theme {
-  @include mat.all-component-themes($dark-theme);
+.theme {
+  @include mat.all-component-themes($lists-theme);
+  .mat-drawer-container, .mat-drawer {
+    background: map.get($blue, 500);
+  }
 }
