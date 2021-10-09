@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
     "@datorama/akita": "^6.2.4",
+    "@datorama/akita-ng-entity-service": "^6.0.0",
     "@datorama/akita-ng-router-store": "^6.0.0",
     "bluebird": "^3.7.2",
     "rxjs": "~6.6.0",
