@@ -30,10 +30,12 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [],
   imports: [
+    LayoutModule,
     MatCheckboxModule,
     MatButtonModule,
     MatInputModule,
@@ -66,6 +68,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatPaginatorModule,
   ],
   exports: [
+    LayoutModule,
     MatCheckboxModule,
     MatButtonModule,
     MatInputModule,

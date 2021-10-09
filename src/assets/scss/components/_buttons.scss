@@ -1,0 +1,23 @@
+.floating-button {
+  position: fixed !important;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+.button-sm {
+  width: 2rem !important;
+  height: 2rem !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .mat-button-wrapper {
+    line-height: 18px !important;
+    padding: 4px 0 !important;
+  }
+  .mat-icon {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

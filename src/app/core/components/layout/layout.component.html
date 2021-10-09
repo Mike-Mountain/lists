@@ -6,8 +6,10 @@
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <a mat-list-item (click)="route('/lists', drawer)">Lists</a>
+      <a mat-list-item (click)="route('/auth/register', drawer)">Register</a>
+      <a mat-list-item (click)="route('/auth/login', drawer)">Login</a>
+      <a mat-list-item *authenticatedWithRole (click)="logout(drawer)">Logout</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

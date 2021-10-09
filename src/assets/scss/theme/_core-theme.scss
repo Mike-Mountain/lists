@@ -12,12 +12,16 @@
 @import 'palettes/orange';
 @import 'palettes/red';
 
+$primary: $orange;
+$accent: $blue;
+$error: $red;
+
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$ng-todo-offline-primary: mat.define-palette($orange);
-$ng-todo-offline-accent: mat.define-palette($blue);
-$ng-todo-offline-warn: mat.define-palette($red);
+$ng-todo-offline-primary: mat.define-palette($primary);
+$ng-todo-offline-accent: mat.define-palette($accent);
+$ng-todo-offline-warn: mat.define-palette($error);
 
 // Insert custom background color
 
@@ -35,7 +39,14 @@ $lists-theme: mat.define-dark-theme((
 // Include theme styles for core and each component used in your app.
 .theme {
   @include mat.all-component-themes($lists-theme);
-  .mat-drawer-container, .mat-drawer {
-    background: map.get($blue, 500);
+  .mat-drawer-container {
+    background: map.get($accent, 500);
   }
+  .mat-drawer {
+    background: map.get($accent, 700);
+  }
+  .mat-card {
+    background: map.get($accent, 900);
+  }
+
 }

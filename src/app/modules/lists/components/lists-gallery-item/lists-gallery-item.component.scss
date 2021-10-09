@@ -1,0 +1,10 @@
+:host {
+  width: 100%;
+}
+
+.gallery-item {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  grid-gap: 1rem;
+  align-items: center;
+}
