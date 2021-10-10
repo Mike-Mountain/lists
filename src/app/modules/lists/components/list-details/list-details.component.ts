@@ -11,6 +11,8 @@ import { ListsQuery } from '../../store/lists.query';
 import { ActivatedRoute } from '@angular/router';
 import { List } from '../../store/list.model';
 import { MatToolbar } from '@angular/material/toolbar';
+import { Observable } from 'rxjs';
+import { ListsService } from '../../store/lists.service';
 
 @Component({
   selector: 'app-list-details',
@@ -24,14 +26,23 @@ export class ListDetailsComponent implements OnInit, AfterViewInit {
 
   constructor(
     private listsQuery: ListsQuery,
+    private listService: ListsService,
     private route: ActivatedRoute,
     private renderer: Renderer2
   ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      this.listsQuery.selectEntity(params.listId).subscribe((list) => {
-        this.list = new List(list as List);
+      let list$: Observable<List | undefined>;
+      if (this.listsQuery.getHasCache()) {
+        list$ = this.listsQuery.selectEntity(params.listId);
+      } else {
+        list$ = this.listService.get<List>(params.listId);
+      }
+      list$.subscribe((list) => {
+        if (list) {
+          this.list = new List(list as List);
+        }
       });
     });
   }
