@@ -10,11 +10,14 @@ import { Observable } from 'rxjs';
 export class SessionService {
   constructor(private sessionStore: SessionStore, private http: HttpClient) {}
 
+  public setSession(session: Session) {
+    this.sessionStore.login(session);
+  }
+
   public login(identifier: string, password: string): Observable<Session> {
     const url = `${environment.apiUrl}/auth/local`;
     return this.http.post<Session>(url, { identifier, password }).pipe(
       tap((session) => {
-        console.log(session);
         this.sessionStore.login(session);
       })
     );
