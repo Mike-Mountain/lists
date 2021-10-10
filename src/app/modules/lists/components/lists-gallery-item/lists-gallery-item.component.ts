@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { List, ListItem } from '../../store/list.model';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { List } from '../../store/list.model';
 
 @Component({
   selector: 'app-lists-gallery-item',
@@ -8,16 +8,20 @@ import { List, ListItem } from '../../store/list.model';
 })
 export class ListsGalleryItemComponent implements OnInit {
   @Input() list: List | undefined;
+  @Output() openSettings = new EventEmitter<List>();
+  @Output() removeItem = new EventEmitter<List>();
 
-  truncatedListItems: ListItem[] = [];
+  showActions = false;
 
   constructor() {}
 
-  ngOnInit(): void {
-    if (this.list) {
-      this.truncatedListItems = this.list.items.filter(
-        (item, index) => index <= 1
-      );
-    }
+  ngOnInit(): void {}
+
+  routeToSettings() {
+    this.openSettings.emit(this.list);
+  }
+
+  removeList() {
+    this.removeItem.emit(this.list);
   }
 }

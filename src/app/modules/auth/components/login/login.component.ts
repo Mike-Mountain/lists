@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm?.valid) {
       const { identifier, password } = this.loginForm.value;
       this.sessionService.login(identifier, password).subscribe(() => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/lists']);
       });
     }
   }

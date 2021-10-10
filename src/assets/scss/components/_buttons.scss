@@ -4,6 +4,16 @@
   right: 2rem;
 }
 
+.menu-button {
+  position: absolute !important;
+  top: .25rem;
+  right: .25rem;
+  border: none;
+  background: transparent;
+  color: white;
+  border-radius: 50%;
+}
+
 .button-sm {
   width: 2rem !important;
   height: 2rem !important;

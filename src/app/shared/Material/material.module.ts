@@ -31,6 +31,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
+import { MatRippleModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [],
@@ -66,6 +67,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    MatRippleModule,
   ],
   exports: [
     LayoutModule,
@@ -99,6 +101,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    MatRippleModule,
   ],
 })
 export class MaterialModule {}

@@ -1,12 +1,15 @@
 <section class="lists-gallery">
-  <ng-container *ngIf="lists$ | async as lists; else noLists">
+  <ng-container *ngIf="lists.length > 0; else noLists">
     <ng-container *ngFor="let list of lists">
       <app-lists-gallery-item
+        class="my-2"
         [list]="list"
+        (openSettings)="openSettings($event)"
+        (removeItem)="removeList($event)"
       ></app-lists-gallery-item>
     </ng-container>
   </ng-container>
-  <button mat-fab class="floating-button" color="primary">
+  <button mat-fab class="floating-button" color="primary" (click)="openConfigureListDialog()">
     <mat-icon>add</mat-icon>
   </button>
 </section>

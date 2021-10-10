@@ -4,9 +4,7 @@ import { ListsStore, ListsState } from './lists.store';
 
 @Injectable({ providedIn: 'root' })
 export class ListsService extends NgEntityService<ListsState> {
-
   constructor(protected store: ListsStore) {
     super(store);
   }
-
 }

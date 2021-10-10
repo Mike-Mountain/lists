@@ -1,0 +1,19 @@
+<section class="list-details" *ngIf="list">
+  <div class="list-details-header" appBgImage [list]="list">
+    <h1 class="text-center">{{list.title}}</h1>
+  </div>
+  <mat-form-field class="w-90 mx-auto my-1">
+    <input matInput placeholder="Search">
+  </mat-form-field>
+  <div class="p-2">
+    <ng-container *ngIf="list.items.length > 0; else noItems"></ng-container>
+  </div>
+</section>
+
+<ng-template #noItems>
+  <mat-card>
+    <mat-card-content>
+      You have not added any Items. Use the search bar above or browse items.
+    </mat-card-content>
+  </mat-card>
+</ng-template>

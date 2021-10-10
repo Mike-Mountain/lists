@@ -12,9 +12,12 @@ export class SessionService {
 
   public login(identifier: string, password: string): Observable<Session> {
     const url = `${environment.apiUrl}/auth/local`;
-    return this.http
-      .post<Session>(url, { identifier, password })
-      .pipe(tap((session) => this.sessionStore.login(session)));
+    return this.http.post<Session>(url, { identifier, password }).pipe(
+      tap((session) => {
+        console.log(session);
+        this.sessionStore.login(session);
+      })
+    );
   }
 
   public register(

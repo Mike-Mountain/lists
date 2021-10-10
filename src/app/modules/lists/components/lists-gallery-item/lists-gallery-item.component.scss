@@ -4,7 +4,25 @@
 
 .gallery-item {
   display: grid;
-  grid-template-columns: 2rem 1fr;
+  grid-template-columns: 4rem 1fr;
   grid-gap: 1rem;
   align-items: center;
+}
+
+.show-actions {
+  grid-template-columns: 1fr 3rem;
+}
+
+.actions {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.list-image {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
 }

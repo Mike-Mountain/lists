@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Add a list</h1>
+<mat-dialog-content *ngIf="listForm">
+  <form class="dialog-form" [formGroup]="listForm">
+    <mat-form-field appearance="outline">
+      <input matInput type="text" formControlName="title" placeholder="Title">
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions class="flex-between">
+  <button mat-raised-button color="warn" (click)="dialogRef.close()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+</mat-dialog-actions>

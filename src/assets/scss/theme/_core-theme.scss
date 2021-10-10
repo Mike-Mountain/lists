@@ -45,7 +45,7 @@ $lists-theme: mat.define-dark-theme((
   .mat-drawer {
     background: map.get($accent, 700);
   }
-  .mat-card {
+  .mat-card, .mat-dialog-container {
     background: map.get($accent, 900);
   }
 
