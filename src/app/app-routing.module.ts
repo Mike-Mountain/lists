@@ -10,6 +10,14 @@ const routes: Routes = [
       import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
   {
+    path: 'list-items',
+    loadChildren: () =>
+      import('./modules/list-items/list-items.module').then(
+        (m) => m.ListItemsModule
+      ),
+    canActivate: [AuthGuard],
+  },
+  {
     path: '',
     loadChildren: () =>
       import('./modules/lists/lists.module').then((m) => m.ListsModule),
