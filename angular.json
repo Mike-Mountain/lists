@@ -74,6 +74,20 @@
                 }
               ]
             },
+            "heroku": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.heroku.ts"
+                }
+              ]
+            },
             "local": {
               "buildOptimizer": false,
               "optimization": false,
@@ -99,6 +113,9 @@
             },
             "dev": {
               "browserTarget": "lists:build:dev"
+            },
+            "heroku": {
+              "browserTarget": "lists:build:heroku"
             },
             "local": {
               "browserTarget": "lists:build:local"
