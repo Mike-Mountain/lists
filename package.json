@@ -14,7 +14,7 @@
     "build": "ng build -c heroku",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "preinstall": "npm i -g @angular/cli && npm install --save-dev @angular-devkit/build-angular"
+    "preinstall": "npm i -g @angular/cli && npm install -g @angular-devkit/build-angular"
   },
   "private": true,
   "dependencies": {
