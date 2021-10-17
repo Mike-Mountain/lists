@@ -42,11 +42,10 @@ $lists-theme: mat.define-dark-theme((
   .mat-drawer-container {
     background: map.get($accent, 500);
   }
-  .mat-drawer {
+  .mat-drawer, .mat-expansion-panel {
     background: map.get($accent, 700);
   }
-  .mat-card, .mat-dialog-container {
+  .mat-card, .mat-dialog-container, .mat-menu-panel, .mat-select-panel {
     background: map.get($accent, 900);
   }
-
 }

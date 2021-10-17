@@ -1,0 +1,17 @@
+<mat-card *ngIf="listItem" class="list-item" (click)="showActions = !showActions">
+  <mat-card-content>
+    <ng-container *ngIf="!showActions">
+      <h3 class="text-center text-truncate">{{listItem.title}}</h3>
+    </ng-container>
+    <ng-container *ngIf="showActions">
+      <div class="w-100 flex-between">
+        <button mat-mini-fab color="primary" class="button-sm" (click)="editItem($event)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-mini-fab color="warn" class="button-sm" (click)="deleteItem()">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </ng-container>
+  </mat-card-content>
+</mat-card>

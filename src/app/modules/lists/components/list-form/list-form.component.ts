@@ -9,8 +9,6 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./list-form.component.scss'],
 })
 export class ListFormComponent implements OnInit {
-  @Input() list?: List;
-
   listForm: FormGroup | undefined;
 
   constructor(

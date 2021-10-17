@@ -1,4 +1,5 @@
 import { BaseModel } from '../../../shared/models/base.model';
+import { ListItem } from '../../list-items/store/list-items/list-item.model';
 
 export class List extends BaseModel {
   title: string;
@@ -10,18 +11,5 @@ export class List extends BaseModel {
     this.title = params?.title || '';
     this.items = params?.items?.map((item) => new ListItem(item)) || [];
     this.coverImage = params.coverImage || '';
-  }
-}
-
-export class ListItem extends BaseModel {
-  title: string;
-  isComplete: boolean;
-  notes: string;
-
-  constructor(params: Partial<ListItem>) {
-    super(params);
-    this.title = params?.title || '';
-    this.isComplete = params?.isComplete || false;
-    this.notes = params?.notes || '';
   }
 }

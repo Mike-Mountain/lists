@@ -5,7 +5,7 @@
                [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
+      <a mat-list-item *authenticatedWithRole (click)="route('/list-items', drawer)">List Items</a>
       <a mat-list-item *authenticatedWithRole (click)="route('/lists', drawer)">Lists</a>
       <a mat-list-item *authenticatedWithRole (click)="logout(drawer)">Logout</a>
       <a mat-list-item *unauthenticated (click)="route('/auth/register', drawer)">Register</a>

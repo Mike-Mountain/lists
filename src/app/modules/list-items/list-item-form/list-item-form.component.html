@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Add an Item</h1>
+<div *ngIf="listItemForm">
+  <form class="dialog-form" [formGroup]="listItemForm" *ngIf="categories && listItemForm">
+    <mat-form-field appearance="outline" class="w-100">
+      <input matInput type="text" formControlName="title" placeholder="Title">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Category</mat-label>
+      <mat-select multiple [(value)]="selected" panelClass="dialog-select">
+        <mat-option
+          *ngFor="let category of categories"
+          [value]="category"
+          (onSelectionChange)="updateCategories($event)"
+        >{{category.title}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+<mat-dialog-actions class="flex-between">
+  <button mat-raised-button type="button" color="warn" (click)="dialogRef.close()">Cancel</button>
+  <button mat-raised-button type="button" color="primary" (click)="submit()">Submit</button>
+</mat-dialog-actions>
