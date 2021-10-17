@@ -4,8 +4,9 @@ import { CoreModule } from './core/core.module';
 import { NG_ENTITY_SERVICE_CONFIG } from '@datorama/akita-ng-entity-service';
 import { environment } from '../environments/environment';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpHeadersInterceptor } from './core/interceptors/http-headers.interceptor';
+import { UnsplashHeadersInterceptor } from './core/interceptors/unsplash-headers/unsplash-headers.interceptor';
 import { windowProvider } from './shared/services/window/window.provider';
+import { AuthHeadersInterceptor } from './core/interceptors/auth-headers/auth-headers.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,7 +19,12 @@ import { windowProvider } from './shared/services/window/window.provider';
     },
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: HttpHeadersInterceptor,
+      useClass: UnsplashHeadersInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthHeadersInterceptor,
       multi: true,
     },
   ],

@@ -6,21 +6,21 @@ import {
   HttpInterceptor,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../../environments/environment';
+import { SessionQuery } from '../../session/session.query';
 
 @Injectable()
-export class HttpHeadersInterceptor implements HttpInterceptor {
-  constructor() {}
+export class AuthHeadersInterceptor implements HttpInterceptor {
+  constructor(private sessionQuery: SessionQuery) {}
 
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    if (request.url.includes('unsplash')) {
+    if (this.sessionQuery.isLoggedIn() && !request.url.includes('unsplash')) {
+      const jwt = this.sessionQuery.getValue().jwt;
       request = request.clone({
         setHeaders: {
-          Authorization: `Client-ID ${environment.accessKey}`,
-          'Accept-Version': 'v1',
+          Authorization: `Bearer ${jwt}`,
         },
       });
     }
