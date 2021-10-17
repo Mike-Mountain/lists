@@ -6,11 +6,10 @@
     </mat-form-field>
     <mat-form-field appearance="outline" class="w-100">
       <mat-label>Category</mat-label>
-      <mat-select multiple [(value)]="selected" panelClass="dialog-select">
+      <mat-select panelClass="dialog-select" formControlName="category">
         <mat-option
           *ngFor="let category of categories"
           [value]="category"
-          (onSelectionChange)="updateCategories($event)"
         >{{category.title}}</mat-option>
       </mat-select>
     </mat-form-field>

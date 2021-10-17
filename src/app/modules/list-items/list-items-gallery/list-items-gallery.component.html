@@ -2,10 +2,10 @@
   <ng-container *ngIf="categories.length > 0; else noCategories">
     <ng-container *ngIf="categories | hasItems; else noListItems">
       <ng-container *ngFor="let category of categories">
-        <section class="category" *ngIf="category.list_items.length > 0">
-          <mat-card-title>{{category.title}}</mat-card-title>
+        <section class="category" *ngIf="category.listItems.length > 0">
+          <mat-card-title>{{category.category.title}}</mat-card-title>
           <div class="list-items">
-            <ng-container *ngFor="let item of category.list_items">
+            <ng-container *ngFor="let item of category.listItems">
               <app-list-item
                 [listItem]="item"
                 (edit)="openConfigureItemDialog(item)"
@@ -17,15 +17,10 @@
       </ng-container>
     </ng-container>
   </ng-container>
-  <button mat-fab class="floating-button" color="primary" [matMenuTriggerFor]="addMenu">
+  <button mat-fab class="floating-button" color="primary" (click)="openConfigureItemDialog()">
     <mat-icon>add</mat-icon>
   </button>
 </section>
-
-<mat-menu #addMenu class="floating-add-menu">
-  <button mat-menu-item (click)="openConfigureItemDialog()">List item</button>
-  <button mat-menu-item (click)="openConfigureCategoryDialog()">Category</button>
-</mat-menu>
 
 <ng-template #noCategories>
   <mat-card class="w-90 mx-auto mt-2">

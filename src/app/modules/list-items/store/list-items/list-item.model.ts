@@ -8,7 +8,7 @@ export class ListItem extends BaseModel {
   notes: string;
   image: string;
   lists: List[];
-  categories: Category[];
+  category: Category;
 
   constructor(params: Partial<ListItem>) {
     super(params);
@@ -17,7 +17,6 @@ export class ListItem extends BaseModel {
     this.notes = params.notes || '';
     this.image = params.image || '';
     this.lists = params.lists?.map((list) => new List(list)) || [];
-    this.categories =
-      params.categories?.map((category) => new Category(category)) || [];
+    this.category = new Category(params?.category || {});
   }
 }
