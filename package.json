@@ -12,6 +12,7 @@
     "heroku": "ng serve -c heroku",
     "local": "ng serve -c local",
     "build": "ng build -c heroku",
+    "node": "ng build -c heroku && node server.js",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "postinstall": "ng build -c heroku"
