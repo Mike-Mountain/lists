@@ -9,7 +9,8 @@
     "local": "ng serve -c local",
     "build": "ng build -c heroku",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "preinstall": "npm install -g @angular/cli"
   },
   "private": true,
   "dependencies": {
